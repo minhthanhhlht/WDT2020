@@ -1,8 +1,37 @@
 ﻿.content{
     position: absolute;
     top: 60px;
-    left:200px;
+    left: 200px;
     bottom:0;
     right:0;
     background-color: #e9ebee;
+    
+}
+/*Page Title*/
+.content .header-content{
+    padding: 16px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+   
+}
+    .content .header-content .title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .content .header-content .page-feature{
+        position: absolute;
+        right: 16px;
+    }
+       
+        /*Filter-bar*/
+        .content .filter-bar {
+        }
+/*Grid- View*/
+.content .grid-view{
+
+}
+/*Paging-bar*/
+.content .paging-bar{
+
 }
