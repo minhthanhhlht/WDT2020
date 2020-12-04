@@ -1,8 +1,8 @@
-﻿.menu{
+﻿.menu {
     width: 200px;
     height: 100vh;
-    
-
+    border-right: 1px solid #e5e5e5;
+    background-color: #ffffff;
 }
 /*Logo*/
 .menu .logo{
@@ -51,9 +51,12 @@
     .menu .menu__content .menu__item:hover{
         background-color: #e5e5e5;
     }
+    .menu .menu__content .menu__item:focus{
+        background-color: #019160;
+    }
     .menu .menu__content .menu__icon {
         width: 24px;
-        height: 24px;           
+        height: 24px;
         background-size: contain;
         background-repeat: no-repeat;
     }
