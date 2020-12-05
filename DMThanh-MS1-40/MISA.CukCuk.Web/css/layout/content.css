@@ -73,8 +73,7 @@
             display:flex;
             align-items: center;
             position: absolute;           
-            padding-left: 45%;
-            
+            padding-left: 45%;            
             justify-content: space-around;
         }
             .content .toolbar .toolbar-center .btn1 {
