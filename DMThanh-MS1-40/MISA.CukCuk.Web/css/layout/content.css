@@ -68,10 +68,14 @@
             padding: 12px;
             right: 0;
         }
-        .content .toolbar .toolbar-center {                     
+        .content .toolbar .toolbar-center {  
+            
+            display:flex;
+            align-items: center;
             position: absolute;           
-            top: 95%;
-            left: 50%;
+            padding-left: 490px;
+            
+            justify-content: space-around;
         }
             .content .toolbar .toolbar-center {
                 
