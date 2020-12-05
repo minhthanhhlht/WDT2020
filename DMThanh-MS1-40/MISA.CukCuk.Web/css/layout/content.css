@@ -48,9 +48,34 @@
             .content .grid {
 
             }
-/*Paging-bar*/
-    .content .paging-bar {        
-        height: 56px;
-        background-color: #00ff90;
-        
+/*toolbar*/
+    .content .toolbar-paging {
+      
     }
+
+    .content .toolbar {
+        border-top: 1px solid #bbbbbb;
+        align-items: center;        
+        display: flex;
+        height: 56px;
+        background-color: #ffffff;
+    }
+    .content .toolbar .toolbar-left{
+        padding: 16px;
+    }
+        .content .toolbar .toolbar-right {
+            position: absolute;
+            padding: 12px;
+            right: 0;
+        }
+        .content .toolbar .toolbar-center {
+            position: absolute;           
+            top: 95%;
+            left: 50%;
+        }
+            .content .toolbar .toolbar-center {
+                
+            }
+
+        
+      

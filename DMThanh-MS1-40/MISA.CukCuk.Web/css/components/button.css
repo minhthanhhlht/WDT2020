@@ -33,3 +33,8 @@
     .btn-refresh:hover {
         background-color: #E5E5E5;
     }
+
+.btn-firstpage {
+    width: 30px;
+    height: 30px;
+}
