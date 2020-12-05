@@ -63,9 +63,146 @@
                 </button>
             </div>
         </div>
-        <div class="filter-bar"></div>
-        <div class="grid-view"></div>
-        <div class="paging-bar"></div>
+        <div class="filter-bar">
+            <div class="filter-left">
+                <input class="icon-search input-search" type="text" style="width:200px" placeholder="Tìm kiếm theo mã, Tên khách hàng" />
+            </div>             
+            <div class="filter-right">
+                <button class="btn-refresh"></button>
+            </div>
+        </div>
+        <div class="grid grid-employee">
+            <table border="0" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã khách hàng</th>
+                        <th>Họ và tên</th>
+                        <th>Giới tính</th>
+                        <th>Ngày sinh</th>
+                        <th>Nhóm khách hàng</th>
+                        <th>Điện thoại</th>
+                        <th>Email</th>
+                        <th>Địa chỉ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KH000001</td>
+                        <td>Đặng Minh Thành</td>
+                        <td>Nam</td>
+                        <td>06/12/1997</td>
+                        <td>Cá nhân</td>
+                        <td>0123456789</td>
+                        <td>minhthhanh@gmail.com</td>
+                        <td style="max-width:100px"><span style="width:100px">Thôn Chùa, Xã Thuận Lộc, THị Xã Hồng Lĩnh, Hà Tĩnh</span></td>
+                    </tr>
+                    <tr>
+                        <td>KH000001</td>
+                        <td>Đặng Minh Thành</td>
+                        <td>Nam</td>
+                        <td>06/12/1997</td>
+                        <td>Cá nhân</td>
+                        <td>0123456789</td>
+                        <td>minhthhanh@gmail.com</td>
+                        <td>Hà Tĩnh</td>
+                    </tr>
+                    <tr>
+                        <td>KH000001</td>
+                        <td>Đặng Minh Thành</td>
+                        <td>Nam</td>
+                        <td>06/12/1997</td>
+                        <td>Cá nhân</td>
+                        <td>0123456789</td>
+                        <td>minhthhanh@gmail.com</td>
+                        <td>Hà Tĩnh</td>
+                    </tr>
+                    <tr>
+                        <td>KH000001</td>
+                        <td>Đặng Minh Thành</td>
+                        <td>Nam</td>
+                        <td>06/12/1997</td>
+                        <td>Cá nhân</td>
+                        <td>0123456789</td>
+                        <td>minhthhanh@gmail.com</td>
+                        <td>Hà Tĩnh</td>
+                    </tr>
+                    <tr>
+                        <td>KH000001</td>
+                        <td>Đặng Minh Thành</td>
+                        <td>Nam</td>
+                        <td>06/12/1997</td>
+                        <td>Cá nhân</td>
+                        <td>0123456789</td>
+                        <td>minhthhanh@gmail.com</td>
+                        <td>Hà Tĩnh</td>
+                    </tr>
+                    <tr>
+                        <td>KH000001</td>
+                        <td>Đặng Minh Thành</td>
+                        <td>Nam</td>
+                        <td>06/12/1997</td>
+                        <td>Cá nhân</td>
+                        <td>0123456789</td>
+                        <td>minhthhanh@gmail.com</td>
+                        <td>Hà Tĩnh</td>
+                    </tr>
+                    <tr>
+                        <td>KH000001</td>
+                        <td>Đặng Minh Thành</td>
+                        <td>Nam</td>
+                        <td>06/12/1997</td>
+                        <td>Cá nhân</td>
+                        <td>0123456789</td>
+                        <td>minhthhanh@gmail.com</td>
+                        <td>Hà Tĩnh</td>
+                    </tr>
+                    <tr>
+                        <td>KH000001</td>
+                        <td>Đặng Minh Thành</td>
+                        <td>Nam</td>
+                        <td>06/12/1997</td>
+                        <td>Cá nhân</td>
+                        <td>0123456789</td>
+                        <td>minhthhanh@gmail.com</td>
+                        <td>Hà Tĩnh</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="toolbar-paging">
+            <button class="btn toolbar-paging-item">
+                <div class="icon page-first"></div>
+            </button>
+            <button class="btn toolbar-paging-item">
+                <div class="icon page-prev"></div>
+            </button>
+            <div class="toolbar-separator-horizontal"></div>
+            <div class="page-info">
+                Trang <input value="1" style="width:40px; padding:0 4px;"> trên <span></span>
+            </div>
+            <div class="toolbar-separator-horizontal"></div>
+            <button class="btn toolbar-paging-item" id="btnNext">
+                <div class="icon page-next"></div>
+            </button>
+            <button class="btn toolbar-paging-item" id="btnLast">
+                <div class="icon page-last"></div>
+            </button>
+            <div class="toolbar-separator-horizontal"></div>
+            <button class="btn toolbar-paging-item" id="btnRefresh">
+                <div class="icon page-refresh"></div>
+            </button>
+            <div class="toolbar-separator-horizontal"></div>
+            <div class="triggerWrap">
+                <select style="background-color: #f2f2f2; border: 1px solid #d9d9d9;" id="size">
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div class="toolbar-paging-right">
+                Hiển thị <span id="dataStart"></span> - <span id="dataEnd"></span> trên <span id="totalRecord"></span> kết quả
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -6,8 +6,30 @@
     height: 40px;
     font-size: 13px;
     color: #ffffff;
-    font-family:GoogleSans-Regular;
-    padding-left:16px;
-    padding-right:16px;
-    border:none;
+    font-family: GoogleSans-Regular;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: none;
+    cursor:pointer;
 }
+    .misa-btn:hover {
+        background-color: #e9ebee;
+    }
+.misa-btn .icon-add{
+    background-position: left;
+}
+.btn-refresh {
+    border: 1px solid #bbbbbb;
+    width: 50px;
+    height: 40px;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    background-image: url('/content/icon/refresh.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+    .btn-refresh:hover {
+        background-color: #E5E5E5;
+    }
