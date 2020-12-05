@@ -77,8 +77,17 @@
             
             justify-content: space-around;
         }
-            .content .toolbar .toolbar-center {
-                
+            .content .toolbar .toolbar-center .btn1 {
+                padding: 5px;
+            }
+            .content .toolbar .toolbar-center .btn2 {
+                padding: 5px;
+            }
+            .content .toolbar .toolbar-center .btn3 {
+                padding: 5px;
+            }
+            .content .toolbar .toolbar-center .btn4 {
+                padding: 5px;
             }
 
         
