@@ -5,6 +5,7 @@
     width: calc(100% - 200px);
     height: 60px;
     border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
     background-color: #ffffff;
     margin: 0px;
     font-family: GoogleSans-Bold;
