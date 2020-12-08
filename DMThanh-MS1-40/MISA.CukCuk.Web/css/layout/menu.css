@@ -19,10 +19,12 @@
 
 }
     .menu .logo .icon-bar {
-        width: 30px;
+        width: 24px;
         height: 30px;       
         background-image: url('/content/img/toggle.png');
         background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .menu .logo .logo-page {
