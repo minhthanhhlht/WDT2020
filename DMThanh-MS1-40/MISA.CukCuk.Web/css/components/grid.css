@@ -12,4 +12,13 @@ table th, td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    
+   
+}
+.grid tbody tr:nth-child(2n+1) {
+    background-color: #fafafa;
+}
+.grid tbody tr:hover {
+    background-color: #d9d9d9;
+    cursor: pointer;
 }
