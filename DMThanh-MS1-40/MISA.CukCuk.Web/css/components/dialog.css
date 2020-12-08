@@ -1,18 +1,18 @@
 ﻿customer-dialog {
 }
 .customer-dialog .dialog-content {
-    height: 547px;
+    height: 530px;
     background-color: #ffffff;
     z-index: 1000;
     border-radius: 5px;
 }
 .customer-dialog .dialog-header {
     display: flex;
-    padding: 24px 24px 0px 24px;
+    padding: 24px 24px 5px 24px;
     cursor: move;
 }
 .dialog-content .dialog-body {
-    height: 463px;
+    height: 447px;
     padding: 0px 24px 24px;
 }
 .dialog-footer {
