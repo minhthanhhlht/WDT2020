@@ -13,7 +13,9 @@
    
 })
 
-//load du lieu    
+/**
+ * Load dữ liệu và append vào table
+ * */  
 function loadData() {
     $.ajax({
         url: 'http://api.manhnv.net/api/customers',
@@ -33,8 +35,8 @@ function loadData() {
                         <td>${response[i].CustomerGroupName}</td>
                         <td>${response[i].PhoneNumber}</td>
                         <td>${response[i].Email}</td>
-                        <td style="max-width:100px"><span style="width:100px">${response[i].Address}</span></td>
-                        <td>${response[i].DebitAmount}</td>
+                        <td style="max-width:250px" title="${response[i].Address}"><span style="width:100px">${response[i].Address}</span></td>
+                        <td>${response[i].DebitAmount||""}</td>
                         <td>${response[i].MemberCardCode}</td>
                     </tr>`;
             $('#tbList >tbody:last-child').append(trHtml);
@@ -56,7 +58,7 @@ function Event() {
     $('#btnCancel').click(function () {
         dialog.dialog('close');
     })
-    $('#tbListData').on('dblclick', 'tr', function () {
+    $('#tbList').on('dblclick', 'tr', function () {
         // load dữ liệu chi tiết:
 
         // Hiển thị dialog thông tin chi tiết:
@@ -66,16 +68,20 @@ function Event() {
 
 
 
-
+/**
+ * Format dữ liệu sang kiểu dd/mm/yyyy
+ * @param {any} date
+ */
 
 function Dateformat(date) {
     var date = new Date(date);
-    //day
-    var day = date.getDate();
+    //day  
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
     //month
-    var month = date.getMonth() + 1;
-    //year
+        var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+        //year
     var year = date.getFullYear();
-
     return day + '/' + month + '/' + year;
 }
