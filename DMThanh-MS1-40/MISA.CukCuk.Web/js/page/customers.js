@@ -1,4 +1,12 @@
 ﻿$(document).ready(function () {
+    //dialog
+    dialog = $(".m-dialog").dialog({
+        autoOpen: true,
+        height: 400,
+        width: 350,
+        modal: true,
+
+    });
     //load du lieu
 
 
@@ -14,20 +22,22 @@
     //2.
 
     //3. 
-
+    $('#tbList tbody').empty();
     for (var i = 0; i < 10; i++) {
+        
         var trHtml = `<tr class="line1">
-                        <td>KH000001</td>
-                        <td>Đặng Minh Thành</td>
-                        <td>Nam</td>
-                        <td>06/12/1997</td>
-                        <td>Cá nhân</td>
-                        <td>0123456789</td>
-                        <td>minhthhanh@gmail.com</td>
-                        <td style="max-width:100px"><span style="width:100px">Thôn Chùa, Xã Thuận Lộc, THị Xã Hồng Lĩnh, Hà Tĩnh</span></td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td style="max-width:100px"><span style="width:100px"></span>...</td>
+                        <td>...</td>
                     </tr>`;
-        $(# > tbody: 'last-Child').append(trHtml);
-
+        $('#tbList > tbody:last-child').append(trHtml);
     }
+   
 
 })

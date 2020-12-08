@@ -3,7 +3,7 @@
     overflow-x: auto;
     overflow-y: hidden;
 }
-table th, td {
+.grid table th, td {
     border-bottom: 1px solid #bbbbbb;
     padding-left: 16px;
     padding-right: 16px;
