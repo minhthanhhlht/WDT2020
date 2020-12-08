@@ -1,20 +1,26 @@
 ﻿$(document).ready(function () {
     //dialog
     dialog = $(".customer-dialog").dialog({
-        autoOpen: true,
+        autoOpen: false,
         height: 600,
         width: 700,
         modal: true,
        
     });
-    //load du lieu
-    //1. 
+    loadData();
+    Event();
+    
+   
+})
+
+//load du lieu    
+function loadData() {
     $.ajax({
         url: 'http://api.manhnv.net/api/customers',
         method: 'GET',
-      }).done(function (response){
-        console.log(response);    
-       //3. 
+    }).done(function (response) {
+        console.log(response);
+        //3. 
         $('#tbList tbody').empty();
         for (var i = 0; i < response.length; i++) {
             console.log(response[i]);
@@ -36,7 +42,32 @@
     }).fail(function (response) {
 
     })
-})
+}
+
+/**
+ * Gán các sự kiện 
+ * */
+function Event() {
+    // Gán các sự kiện:
+    $('#btnAdd').click(function () {
+        dialog.dialog('open');
+    })
+
+    $('#btnCancel').click(function () {
+        dialog.dialog('close');
+    })
+    $('#tbListData').on('dblclick', 'tr', function () {
+        // load dữ liệu chi tiết:
+
+        // Hiển thị dialog thông tin chi tiết:
+        dialog.dialog('open');
+    })
+}
+
+
+
+
+
 function Dateformat(date) {
     var date = new Date(date);
     //day
