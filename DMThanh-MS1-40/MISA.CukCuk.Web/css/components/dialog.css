@@ -1,5 +1,6 @@
 ﻿customer-dialog {
 }
+
 .customer-dialog .dialog-content {
     height: 530px;
     background-color: #ffffff;
@@ -25,18 +26,22 @@
     justify-content: flex-end;
     padding: 12px 24px;
     box-sizing: border-box;
+    
 }
-.customer-dialog .dialog-header .dialog-header-close button {
-    width: 40px;
-    height: 40px;
-    border-radius: 0 5px 0 0;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: #ffffff;
-    background-image: url('/content/icon/x.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 20px;
-    opacity: .7;
-}
+    .dialog-footer button{
+        margin-left: 16px;
+    }
+    .customer-dialog .dialog-header .dialog-header-close button {
+        width: 40px;
+        height: 40px;
+        border-radius: 0 5px 0 0;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: #ffffff;
+        background-image: url('/content/icon/x.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 20px;
+        opacity: .7;
+    }
