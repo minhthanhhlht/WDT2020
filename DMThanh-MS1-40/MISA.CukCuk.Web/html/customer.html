@@ -166,24 +166,24 @@
                         <div class="m-row mg-top-0 m-flex">
                             <div class="m-col m-flex-1">
                                 <div class="m-label">Mã khách hàng (<span class="label-required">*</span>)</div>
-                                <div class="m-control"><input id="txtCustomerCode" fieldName="CustomerCode" required class="input-required" type="text" /></div>
+                                <div class="m-control"><input id="txtCustomerCode" required class="input-required" type="text" /></div>
                             </div>
                             <div class="m-flex-1 mg-left-10px">
                                 <div class="m-label">Họ và tên (<span class="label-required">*</span>)</div>
                                 <div class="m-control">
-                                    <input id="txtFullName" fieldName="FullName" class="input-required" type="text" required />
+                                    <input id="txtFullName" class="input-required" type="text" required />
                                 </div>
                             </div>
                         </div>
                         <div class="m-row m-flex">
                             <div class="m-col m-flex-1">
                                 <div class="m-label">Mã thẻ thành viên</div>
-                                <div class="m-control"><input id="txtMemberCardCode" fieldName="MemberCardCode" type="text" /></div>
+                                <div class="m-control"><input id="txtMemberCardCode" type="text" /></div>
 
                             </div>
                             <div class="m-flex-1 mg-left-10px">
                                 <div class="m-label">Nhóm khách hàng</div>
-                                <select id="cbxCustomerGroup" fieldName="CustomerGroupName" fieldValue="CustomerGroupId" api="/api/customergroups" class="m-control">
+                                <select id="cbxCustomerGroup"  fieldValue="CustomerGroupId" api="/api/customergroups" class="m-control">
                                     <option value="0">Khách thường</option>
                                     <option value="1">Khách vip</option>
                                     <option value="1">Khách hàng vip MISA</option>
@@ -197,7 +197,7 @@
                         <div class="m-row m-flex">
                             <div class="m-flex-1">
                                 <div class="m-label">Ngày sinh</div>
-                                <div class="m-control"><input id="dtDateOfBirth" fieldName="DateOfBirth" type="date" /></div>
+                                <div class="m-control"><input id="dtDateOfBirth" type="date" /></div>
                             </div>
                             <div class="m-flex-1 mg-left-10px">
                                 <div class="m-label">Giới tính</div>
@@ -214,21 +214,21 @@
                 <div class="m-row m-flex">
                     <div class="m-flex-2">
                         <div class="m-label">Email</div>
-                        <div class="m-control"><input id="txtEmail" fieldName="Email" type="email" placeholder="example@domain.com" /></div>
+                        <div class="m-control"><input id="txtEmail" type="email" placeholder="example@domain.com" /></div>
                     </div>
                     <div class="m-flex-1 mg-left-10px">
                         <div class="m-label">Số điện thoại (<span class="label-required">*</span>)</div>
-                        <div class="m-control"><input id="txtPhoneNumber" fieldName="PhoneNumber" class="input-required" type="tel" required /></div>
+                        <div class="m-control"><input id="txtPhoneNumber" class="input-required" type="tel" required /></div>
                     </div>
                 </div>
                 <div class="m-row m-flex">
                     <div class="m-flex-2">
                         <div class="m-label">Tên công ty</div>
-                        <div class="m-control"><input type="text" fieldName="CompanyName" /></div>
+                        <div class="m-control"><input type="text" /></div>
                     </div>
                     <div class="m-flex-1 mg-left-10px">
                         <div class="m-label">Mã số thuế</div>
-                        <div class="m-control"><input type="text" fieldName="CompanyTaxCode" placeholder="Mã số thuế của công ty" /></div>
+                        <div class="m-control"><input type="text" placeholder="Mã số thuế của công ty" /></div>
                     </div>
                 </div>
                 <div class="m-row m-flex">
@@ -242,7 +242,10 @@
             </div>
             <div class="dialog-footer">
                 <button id="btnCancel" class="m-btn m-btn-default m-btn-cancel">Hủy</button>
-                <button id="btnSave" class="m-btn m-btn-default"><span class="btn-text">Lưu</span></button>
+                <button id="btnSave" class="m-btn m-btn-default">
+                    <div class="m-btn-save"></div>
+                <span class="btn-text">Lưu</span>
+                </button>
             </div>
         </div>
     </div>

@@ -40,6 +40,14 @@
     color: #000000;
     background-color: #e9ebee;
 }
+.m-btn-save {
+    padding-right: 8px;
+    height: 16px;
+    width: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/content/icon/icons8-save-48.png');
+}
 .btn-refresh {
     border: 1px solid #bbbbbb;
     width: 50px;
