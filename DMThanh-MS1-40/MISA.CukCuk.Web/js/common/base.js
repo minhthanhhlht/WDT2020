@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿//import { data } from "jquery";
+
+$(document).ready(function () {
      //dialog
 
     dialog = $(".customer-dialog").dialog({
@@ -54,21 +56,79 @@ class BaseJS {
     * Gán các sự kiện
     * */
     Event() {
+        var me = this;
         // Gán các sự kiện:
+        // Sự kiện khi nhấn nút Thêm mới
         $('#btnAdd').click(function () {
             dialog.dialog('open');
 
         })
+        //Sự kiện khi nhấn nút huỷ
         $('#btnCancel').click(function () {
             dialog.dialog('close');
         })
-        $('#tbList').on('dblclick', 'tr', function () {
-            // load dữ liệu chi tiết:
+        // Sự kiện khi nhấn nút Refresh
+        $('#btnRefresh').click(function () {
+            //gán sự kiện
+            me.loadData();
+
+        })
+         // Thực hiện lưu dữ liệu khi nhấn button Save
+        $('#btnSave').click(function () {
+            //validate
+            var inputValidates = $('[required], [type="email"]');
+            $.each(inputValidates, function (index, input) {
+                $(input).trigger('blur');
+            })
+            var inputNotValids = $('[validate="false"]');
+            if (inputNotValids && inputNotValids.length > 0) {
+                alert('Vui lòng kiểm tra lại dữ liệu.');
+                inputNotValids[0].focus();
+                //Sau khi return thì stop hẳn
+                return;
+            } else {
+
+            }
+            //Thu thập thông tin dữ liệu nhập
+            var customer = {
+                "CustomerCode": $('#txtCustomerCode').val(),
+                "FullName": $('#txtFullName').val(),
+                "Address": $('#txtAddress').val(),
+                "DateOfBirth": $('#dtDateOfBirth').val(),
+                "Email": $('#txtEmail').val(),
+                "PhoneNumber": $('#txtPhoneNumber').val(),
+                "MemberCardCode": $('#txtMemberCardCode').val(),
+                "Gender": $('#cbxGender').val()
+            }
+            console.log(customer);
+            //Gọi server
+            
+            $.ajax({
+                url: 'http://api.manhnv.net/api/customers',
+                method: 'POST',
+                data: JSON.stringify(customer),
+                contentType: 'application/json'
+
+            }).done(function (response) {
+                 //Đưa ra thông báo thành công sau đó ẩn form dialog, loading lại dữ liệu
+                alert('Lưu thành công!');
+                dialog.dialog('close');
+                me.loadData();
+
+            }).fail(function (response) {
 
 
-            // Hiển thị dialog thông tin chi tiết:
+            })
+            
+           
+            
+        })
+         // Hiển thị dialog thông tin chi tiết khi db click
+        $('#tbList').on('dblclick', 'tr', function () {         
+           
             dialog.dialog('open');
         })
+        // Click chọn -->item menu đổi màu
         $(".menu__item")
             .hover(function () {
                 $(this).toggleClass(".menu__item");
@@ -79,7 +139,54 @@ class BaseJS {
             .mousedown(function () {
                 $(this).css('background-color', '#7fffd4');
             });
-            
+
+        /**
+         * Validate nhập thông tin trường *
+         * **/
+        $('[required]').blur(function () {
+            //Check dữ liệu đã nhập
+            var value = $(this).val();
+            if (!value) {
+                $(this).addClass('border-red');
+                $(this).attr(`title`, 'Vui lòng không để trống');
+                $(this).attr("validate", false);
+            } else {
+                $(this).removeClass('border-red');
+                $(this).attr("validate", true);
+            }
+        })
+
+        /**
+         * Validate nhập email
+         * **/
+        $('[type="email"]').blur(function () {
+            var value = $(this).val();
+            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            if (!emailReg.test(value)) {
+                $(this).addClass('border-red');
+                $(this).attr(`title`, 'Vui lòng nhập đúng định dạng email');
+                $(this).attr("validate", false);
+            } else {
+                $(this).removeClass('border-red');
+                $(this).attr("validate", true);
+            }
+        })
+
+        /**
+         * Validate Phone number
+         * **/
+        $('[type="tel"]').blur(function () {
+            var value = $(this).val();
+            var phoneReg = /([0-9]{10})|(\([0-9]{3}\)\s+[0-9]{3}\-[0-9]{4})/;
+            if (!phoneReg.test(value)) {
+                $(this).addClass('border-red');
+                $(this).attr(`title`, 'Vui lòng nhập đúng định dạng số điện thoại');
+                $(this).attr("validate", false);
+            } else {
+                $(this).removeClass('border-red');
+                $(this).attr("validate", true);
+            }
+        })
        
     }
 

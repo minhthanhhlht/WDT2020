@@ -73,23 +73,23 @@
                 <input class="icon-search input-search" type="text" style="width:200px" placeholder="Tìm kiếm theo mã, Tên khách hàng" />
             </div>
             <div class="filter-right">
-                <button class="btn-refresh"></button>
+                <button id="btnRefresh" class="btn-refresh"></button>
             </div>
         </div>
         <div class="grid grid-employee">
             <table id="tbList" border="0" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Mã khách hàng</th>
-                        <th>Họ và tên</th>
-                        <th>Giới tính</th>
-                        <th>Ngày sinh</th>
-                        <th>Nhóm khách hàng</th>
-                        <th>Điện thoại</th>
-                        <th>Email</th>
-                        <th>Địa chỉ</th>
-                        <th>Số tiền nợ</th>
-                        <th>Mã thẻ thành viên</th>
+                        <th fieldName="CustomerCode">Mã khách hàng</th>
+                        <th fieldName="FullName">Họ và tên</th>
+                        <th fieldName="Gender">Giới tính</th>
+                        <th fieldName="DateOfBirth">Ngày sinh</th>
+                        <th fieldName="CustomerGroupName">Nhóm khách hàng</th>
+                        <th fieldName="PhoneNumber">Điện thoại</th>
+                        <th fieldName="Email">Email</th>
+                        <th fieldName="Address">Địa chỉ</th>
+                        <th fieldName="DebitAmount">Số tiền nợ</th>
+                        <th fieldName="MemberCardCode">Mã thẻ thành viên</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,18 +104,7 @@
                         <td style="max-width:100px"><span style="width:100px"></span></td>
                         <td></td>
                         <td></td>
-                    </tr>
-                    <tr class="line1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td style="max-width:100px"><span style="width:100px"></span></td>
-                        <td></td>
-                    </tr>
+                    </tr>                  
 
                 </tbody>
             </table>
@@ -150,7 +139,9 @@
         </div>
     </div>
 
-    <!---->
+    <!--
+        Dialog    
+    -->
     <div class="customer-dialog" title="THÔNG TIN KHÁCH HÀNG">
         <div class="dialog-content">
             <div class="dialog-body">
@@ -183,10 +174,10 @@
                             </div>
                             <div class="m-flex-1 mg-left-10px">
                                 <div class="m-label">Nhóm khách hàng</div>
-                                <select id="cbxCustomerGroup"  fieldValue="CustomerGroupId" api="/api/customergroups" class="m-control">
+                                <select id="cbxCustomerGroup" fieldValue="CustomerGroupId" api="/api/customergroups" class="m-control">
                                     <option value="0">Khách thường</option>
                                     <option value="1">Khách vip</option>
-                                    <option value="1">Khách hàng vip MISA</option>
+                                    <option value="2">Khách hàng vip MISA</option>
                                 </select>
                                 <combobox id="cbxCustomerGroup"
                                           fieldName=""
@@ -206,8 +197,7 @@
                                     <option value="1">Nữ</option>
                                 </select>
                             </div>
-
-                        </div>
+                            </div>
                     </div>
                 </div>
 
@@ -221,24 +211,26 @@
                         <div class="m-control"><input id="txtPhoneNumber" class="input-required" type="tel" required /></div>
                     </div>
                 </div>
-                <div class="m-row m-flex">
-                    <div class="m-flex-2">
-                        <div class="m-label">Tên công ty</div>
-                        <div class="m-control"><input type="text" /></div>
-                    </div>
-                    <div class="m-flex-1 mg-left-10px">
-                        <div class="m-label">Mã số thuế</div>
-                        <div class="m-control"><input type="text" placeholder="Mã số thuế của công ty" /></div>
-                    </div>
-                </div>
+                
+                <!--<div class="m-row m-flex">
+        <div class="m-flex-2">
+            <div class="m-label">Tên công ty</div>
+            <div class="m-control"><input type="text" /></div>
+        </div>
+        <div class="m-flex-1 mg-left-10px">
+            <div class="m-label">Mã số thuế</div>
+            <div class="m-control"><input type="text" placeholder="Mã số thuế của công ty" /></div>
+        </div>
+    </div>-->
+
                 <div class="m-row m-flex">
                     <div class="m-flex-3">
                         <div class="m-label">Địa chỉ</div>
-                        <div class="m-control"><input id="txtAddress" fieldName="Address" type="tel" /></div>
+                        <div class="m-control"><input id="txtAddress" fieldName="Address" /></div>
                     </div>
                 </div>
 
-               
+
             </div>
             <div class="dialog-footer">
                 <button id="btnCancel" class="m-btn m-btn-default m-btn-cancel">Hủy</button>
