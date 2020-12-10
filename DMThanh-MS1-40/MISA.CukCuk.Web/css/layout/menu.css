@@ -47,10 +47,11 @@
     .menu .menu__content .menu__item {
         width: calc(100% - 24px);
         display: flex;
-        align-items: center;        
+        align-items: center;
         height: 50px;
         padding-left: 24px;
         cursor: pointer;
+        background: #808080;
     }
     .menu .menu__content .menu__item:hover{
         background-color: #e5e5e5;
