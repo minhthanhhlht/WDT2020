@@ -89,6 +89,10 @@ class BaseJS {
             } else {
 
             }
+            
+              /**
+              * Thêm dữ liệu
+              * */
             //Thu thập thông tin dữ liệu nhập
             var customer = {
                 "CustomerCode": $('#txtCustomerCode').val(),
@@ -119,9 +123,7 @@ class BaseJS {
 
 
             })
-            
-           
-            
+                                 
         })
          // Hiển thị dialog thông tin chi tiết khi db click
         $('#tbList').on('dblclick', 'tr', function () {         
@@ -177,7 +179,7 @@ class BaseJS {
          * **/
         $('[type="tel"]').blur(function () {
             var value = $(this).val();
-            var phoneReg = /([0-9]{10})|(\([0-9]{3}\)\s+[0-9]{3}\-[0-9]{4})/;
+            var phoneReg = /^\d{10}$/;
             if (!phoneReg.test(value)) {
                 $(this).addClass('border-red');
                 $(this).attr(`title`, 'Vui lòng nhập đúng định dạng số điện thoại');
@@ -190,9 +192,6 @@ class BaseJS {
        
     }
 
-    /**
-* Thêm dữ liệu
-* */
     addData() {
 
     }
