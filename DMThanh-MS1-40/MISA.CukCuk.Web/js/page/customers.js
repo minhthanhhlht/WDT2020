@@ -7,27 +7,31 @@
         modal: true,
        
     });
-    loadData();
-    Event();
+    new CustomerJS();
+   Event();
     
    
 })
 
+class CustomerJS {
+    constructor() {
+        this.loadData();
+    }
 /**
- * Load dữ liệu và append vào table
- * */  
-function loadData() {
-    $.ajax({
-        url: 'http://api.manhnv.net/api/customers',
-        method: 'GET',
-    }).done(function (response) {
-        console.log(response);
-        //3. 
-        $('#tbList tbody').empty();
-        for (var i = 0; i < response.length; i++) {
-            console.log(response[i]);
-            var DateOfB = Dateformat(response[i].DateOfBirth)
-            var trHtml = `<tr class="line1">
+* Load dữ liệu và append vào table
+* */
+    loadData() {
+        $.ajax({
+            url: 'http://api.manhnv.net/api/customers',
+            method: 'GET',
+        }).done(function (response) {
+            console.log(response);
+            //3. 
+            $('#tbList tbody').empty();
+            for (var i = 0; i < response.length; i++) {
+                console.log(response[i]);
+                var DateOfB = Dateformat(response[i].DateOfBirth)
+                var trHtml = `<tr class="line1">
                         <td>${response[i].CustomerCode}</td>
                         <td>${response[i].FullName}</td>
                         <td>${response[i].GenderName}</td>
@@ -36,14 +40,38 @@ function loadData() {
                         <td>${response[i].PhoneNumber}</td>
                         <td>${response[i].Email}</td>
                         <td style="max-width:250px" title="${response[i].Address}"><span style="width:100px">${response[i].Address}</span></td>
-                        <td>${response[i].DebitAmount||""}</td>
+                        <td>${response[i].DebitAmount || ""}</td>
                         <td>${response[i].MemberCardCode}</td>
                     </tr>`;
-            $('#tbList >tbody:last-child').append(trHtml);
-        }
-    }).fail(function (response) {
+                $('#tbList >tbody:last-child').append(trHtml);
+            }
+        }).fail(function (response) {
 
-    })
+        })
+    }
+
+    /**
+* Thêm dữ liệu
+* */
+    addData() {
+
+    }
+
+
+/**
+* Sửa dữ liệu
+* */
+    editData() {
+
+    }
+
+/**
+* Xoá dữ liệu
+* */
+    deleteData() {
+
+    }
+
 }
 
 /**
