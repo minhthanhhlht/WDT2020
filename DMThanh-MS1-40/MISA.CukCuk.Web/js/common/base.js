@@ -50,7 +50,7 @@ class BaseJS {
 
         })
     }
-    S
+    
 
     /**
     * Gán các sự kiện
@@ -125,11 +125,48 @@ class BaseJS {
             })
                                  
         })
+
          // Hiển thị dialog thông tin chi tiết khi db click
-        $('#tbList').on('dblclick', 'tr', function () {         
+        $('#tbList').on('dblclick', 'tr', function () {
+             //Lấy dữ liệu từ server
+            $.ajax({
+                url: 'http://api.manhnv.net/api/customers',
+                method: 'GET',               
+
+            }).done(function (response) {
+                var row_id = $(this).attr("id");
+                var CustomerCode = $('#txtCustomerCode' + row_id + '').val();
+                $('#txtCustomerCode').val(CustomerCode);
+                $(".customer-dialog").dialog('option', 'title', 'THÔNG TIN CHI TIẾT');
+
+
+                dialog.dialog('open');
+
+            }).fail(function (response) {
+
+
+            })
+          
+                /*
+                var args = event.args;
+                var index = args.index;
+                var row = args.row;
+                // update the widgets inside jqxWindow.               
+                $(".customer-dialog").dialog('open');
+                $(".customer-dialog").attr('data-row', index);               
+                $("#txtCustomerCode").val(row.CustomerCode);
+                $("#txtFullName").val(row.FullName);
+                $("#txtAddress").val(row.Address);
+                $("#dtDateOfBirth").val(row.DateOfBirth);
+                $("#txtEmail").val(row.Email);
+                $("#txtPhoneNumber").val(row.PhoneNumber);
+                $("#txtMemberCardCode").val(row.MemberCardCode);    
+                
+                */
+                
+            });
            
-            dialog.dialog('open');
-        })
+        
         // Click chọn -->item menu đổi màu
         $(".menu__item")
             .hover(function () {
