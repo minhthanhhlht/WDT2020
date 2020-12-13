@@ -21,6 +21,7 @@ class BaseJS {
     /**
 * Load dữ liệu và append vào table
 * */
+    
     loadData() {
         $.ajax({
             url: 'http://api.manhnv.net/api/customers',
@@ -50,6 +51,7 @@ class BaseJS {
 
         })
     }
+    
     
 
     /**
@@ -128,19 +130,24 @@ class BaseJS {
 
          // Hiển thị dialog thông tin chi tiết khi db click
         $('#tbList').on('dblclick', 'tr', function () {
+            var inputs = $(`input[fieldname], select[fieldname]`);
              //Lấy dữ liệu từ server
+              
             $.ajax({
                 url: 'http://api.manhnv.net/api/customers',
                 method: 'GET',               
 
             }).done(function (response) {
+                /*
                 var row_id = $(this).attr("id");
                 var CustomerCode = $('#txtCustomerCode' + row_id + '').val();
                 $('#txtCustomerCode').val(CustomerCode);
                 $(".customer-dialog").dialog('option', 'title', 'THÔNG TIN CHI TIẾT');
-
-
                 dialog.dialog('open');
+                */
+                $.each(inputs, function (index, input) {
+
+                })
 
             }).fail(function (response) {
 
