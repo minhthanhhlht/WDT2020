@@ -1,27 +1,27 @@
 ﻿//import { data } from "jquery";
 
 $(document).ready(function () {
-     //dialog
+    //dialog
 
     dialog = $(".customer-dialog").dialog({
         autoOpen: false,
         height: 600,
         width: 700,
         modal: true,
-        });
+    });
 })
 
 class BaseJS {
     constructor() {
         this.loadData();
         this.Event();
-        
+
     }
 
     /**
 * Load dữ liệu và append vào table
 * */
-    
+
     loadData() {
         $.ajax({
             url: 'http://api.manhnv.net/api/customers',
@@ -51,8 +51,8 @@ class BaseJS {
 
         })
     }
-    
-    
+
+
 
     /**
     * Gán các sự kiện
@@ -75,7 +75,7 @@ class BaseJS {
             me.loadData();
 
         })
-         // Thực hiện lưu dữ liệu khi nhấn button Save
+        // Thực hiện lưu dữ liệu khi nhấn button Save
         $('#btnSave').click(function () {
             //validate
             var inputValidates = $('[required], [type="email"]');
@@ -91,10 +91,10 @@ class BaseJS {
             } else {
 
             }
-            
-              /**
-              * Thêm dữ liệu
-              * */
+
+            /**
+            * Thêm dữ liệu
+            * */
             //Thu thập thông tin dữ liệu nhập
             var customer = {
                 "CustomerCode": $('#txtCustomerCode').val(),
@@ -108,7 +108,7 @@ class BaseJS {
             }
             console.log(customer);
             //Gọi server
-            
+
             $.ajax({
                 url: 'http://api.manhnv.net/api/customers',
                 method: 'POST',
@@ -116,7 +116,7 @@ class BaseJS {
                 contentType: 'application/json'
 
             }).done(function (response) {
-                 //Đưa ra thông báo thành công sau đó ẩn form dialog, loading lại dữ liệu
+                //Đưa ra thông báo thành công sau đó ẩn form dialog, loading lại dữ liệu
                 alert('Lưu thành công!');
                 dialog.dialog('close');
                 me.loadData();
@@ -125,17 +125,17 @@ class BaseJS {
 
 
             })
-                                 
+
         })
 
-         // Hiển thị dialog thông tin chi tiết khi db click
+        // Hiển thị dialog thông tin chi tiết khi db click
         $('#tbList').on('dblclick', 'tr', function () {
             var inputs = $(`input[fieldname], select[fieldname]`);
-             //Lấy dữ liệu từ server
-              
+            //Lấy dữ liệu từ server
+
             $.ajax({
                 url: 'http://api.manhnv.net/api/customers',
-                method: 'GET',               
+                method: 'GET',
 
             }).done(function (response) {
                 /*
@@ -153,35 +153,20 @@ class BaseJS {
 
 
             })
+
           
-                /*
-                var args = event.args;
-                var index = args.index;
-                var row = args.row;
-                // update the widgets inside jqxWindow.               
-                $(".customer-dialog").dialog('open');
-                $(".customer-dialog").attr('data-row', index);               
-                $("#txtCustomerCode").val(row.CustomerCode);
-                $("#txtFullName").val(row.FullName);
-                $("#txtAddress").val(row.Address);
-                $("#dtDateOfBirth").val(row.DateOfBirth);
-                $("#txtEmail").val(row.Email);
-                $("#txtPhoneNumber").val(row.PhoneNumber);
-                $("#txtMemberCardCode").val(row.MemberCardCode);    
-                
-                */
-                
-            });
-           
-        
+
+        });
+
+
         // Click chọn -->item menu đổi màu
         $(".menu__item")
             .hover(function () {
                 $(this).toggleClass(".menu__item");
             })
             .mouseup(function () {
-            $(this).css('background-color','');
-            })            
+                $(this).css('background-color', '');
+            })
             .mousedown(function () {
                 $(this).css('background-color', '#7fffd4');
             });
@@ -233,7 +218,7 @@ class BaseJS {
                 $(this).attr("validate", true);
             }
         })
-       
+
     }
 
     addData() {
