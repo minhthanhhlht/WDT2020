@@ -1,0 +1,35 @@
+﻿.grid-employee {
+    height: calc(100vh - 236px);
+}
+.el-left {
+    width: calc(100% - 204px);
+}
+
+.el-avatar-customer .el-avatar {
+    border: 1px solid #ccc;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    border-radius: 50%;
+    cursor: pointer;
+    background-image: url('/content/img/default-avatar.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+    
+/*
+.inputfile {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    cursor: pointer;    
+    
+    background-image: url('/content/img/default-avatar.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+    */
