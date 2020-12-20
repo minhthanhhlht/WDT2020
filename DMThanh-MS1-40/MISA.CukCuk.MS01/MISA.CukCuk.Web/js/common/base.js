@@ -58,76 +58,16 @@ class BaseJS {
     * Gán các sự kiện
     * */
     Event() {
-        var me = this;
+
         // Gán các sự kiện:
         // Sự kiện khi nhấn nút Thêm mới
-        $('#btnAdd').click(function () {
-            dialog.dialog('open');
-
-        })
+        $('#btnAdd').click(this.btnAddOnClick.bind(this));
         //Sự kiện khi nhấn nút huỷ
-        $('#btnCancel').click(function () {
-            dialog.dialog('close');
-        })
+        $('#btnCancel').click(this.btnCancelOnClick.bind(this));
         // Sự kiện khi nhấn nút Refresh
-        $('#btnRefresh').click(function () {
-            //gán sự kiện
-            me.loadData();
-
-        })
+        $('#btnRefresh').click(this.btnRefreshOnClick.bind(this));
         // Thực hiện lưu dữ liệu khi nhấn button Save
-        $('#btnSave').click(function () {
-            //validate
-            var inputValidates = $('[required], [type="email"]');
-            $.each(inputValidates, function (index, input) {
-                $(input).trigger('blur');
-            })
-            var inputNotValids = $('[validate="false"]');
-            if (inputNotValids && inputNotValids.length > 0) {
-                alert('Vui lòng kiểm tra lại dữ liệu.');
-                inputNotValids[0].focus();
-                //Sau khi return thì stop hẳn
-                return;
-            } else {
-
-            }
-
-            /**
-            * Thêm dữ liệu
-            * */
-            //Thu thập thông tin dữ liệu nhập
-            var customer = {
-                "CustomerCode": $('#txtCustomerCode').val(),
-                "FullName": $('#txtFullName').val(),
-                "Address": $('#txtAddress').val(),
-                "DateOfBirth": $('#dtDateOfBirth').val(),
-                "Email": $('#txtEmail').val(),
-                "PhoneNumber": $('#txtPhoneNumber').val(),
-                "MemberCardCode": $('#txtMemberCardCode').val(),
-                "Gender": $('#cbxGender').val()
-            }
-            console.log(customer);
-            //Gọi server
-
-            $.ajax({
-                url: 'http://api.manhnv.net/api/customers',
-                method: 'POST',
-                data: JSON.stringify(customer),
-                contentType: 'application/json'
-
-            }).done(function (response) {
-                //Đưa ra thông báo thành công sau đó ẩn form dialog, loading lại dữ liệu
-                alert('Lưu thành công!');
-                dialog.dialog('close');
-                me.loadData();
-
-            }).fail(function (response) {
-
-
-            })
-
-        })
-
+        $('#btnSave').click(this.btnSaveOnClick.bind(this));
         // Hiển thị dialog thông tin chi tiết khi db click
         $('#tbList').on('dblclick', 'tr', function () {
             var inputs = $(`input[fieldname], select[fieldname]`);
@@ -154,7 +94,7 @@ class BaseJS {
 
             })
 
-          
+
 
         });
 
@@ -220,25 +160,74 @@ class BaseJS {
         })
 
     }
+    // Sự kiện khi nhấn nút Thêm mới
+    btnAddOnClick() {
+        dialog.dialog('open');
+    }
 
+    btnCancelOnClick() {
+        dialog.dialog('close');
+    }
+    btnRefreshOnClick() {
+        this.loadData();
+    }
+
+    btnSaveOnClick() {
+        //validate
+        var inputValidates = $('[required], [type="email"]');
+        $.each(inputValidates, function (index, input) {
+            $(input).trigger('blur');
+        })
+        var inputNotValids = $('[validate="false"]');
+        if (inputNotValids && inputNotValids.length > 0) {
+            alert('Vui lòng kiểm tra lại dữ liệu.');
+            inputNotValids[0].focus();
+            //Sau khi return thì stop hẳn
+            return;
+        } else {
+
+        }
+
+    /**
+    * Thêm dữ liệu
+    * */
+            //Thu thập thông tin dữ liệu nhập
+
+        var customer = {
+            "CustomerCode": $('#txtCustomerCode').val(),
+            "FullName": $('#txtFullName').val(),
+            "Address": $('#txtAddress').val(),
+            "DateOfBirth": $('#dtDateOfBirth').val(),
+            "Email": $('#txtEmail').val(),
+            "PhoneNumber": $('#txtPhoneNumber').val(),
+            "MemberCardCode": $('#txtMemberCardCode').val(),
+            "Gender": $('#cbxGender').val()
+        }
+        console.log(customer);
+        //Gọi server
+
+        $.ajax({
+            url: 'http://api.manhnv.net/api/customers',
+            method: 'POST',
+            data: JSON.stringify(customer),
+            contentType: 'application/json'
+
+        }).done(function (response) {
+            //Đưa ra thông báo thành công sau đó ẩn form dialog, loading lại dữ liệu
+            alert('Lưu thành công!');
+            dialog.dialog('close');
+            me.loadData();
+
+        }).fail(function (response) {
+
+
+        })
+    }
     addData() {
 
     }
 
 
-    /**
-    * Sửa dữ liệu
-    * */
-    editData() {
-
-    }
-
-    /**
-    * Xoá dữ liệu
-    * */
-    deleteData() {
-
-    }
 
 }
 function customerDetail(obj) {
