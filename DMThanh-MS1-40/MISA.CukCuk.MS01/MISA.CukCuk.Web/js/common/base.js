@@ -69,26 +69,18 @@ class BaseJS {
         // Thực hiện lưu dữ liệu khi nhấn button Save
         $('#btnSave').click(this.btnSaveOnClick.bind(this));
         // Hiển thị dialog thông tin chi tiết khi db click
-        $('#tbList').on('dblclick', 'tr', function () {
-            var inputs = $(`input[fieldname], select[fieldname]`);
+        $('#tbList').on('dblclick','tr',function () {
+            dialog.dialog('open');
             //Lấy dữ liệu từ server
-
             $.ajax({
                 url: 'http://api.manhnv.net/api/customers',
                 method: 'GET',
 
             }).done(function (response) {
-                /*
-                var row_id = $(this).attr("id");
-                var CustomerCode = $('#txtCustomerCode' + row_id + '').val();
-                $('#txtCustomerCode').val(CustomerCode);
-                $(".customer-dialog").dialog('option', 'title', 'THÔNG TIN CHI TIẾT');
-                dialog.dialog('open');
-                */
-                $.each(inputs, function (index, input) {
-
-                })
-
+                //bindding du lieu len dialog
+                $("#txtCustomerCode").val(response["CustomerCode"]);
+                $("#txtFullName").val(response["FullName"]);
+             
             }).fail(function (response) {
 
 

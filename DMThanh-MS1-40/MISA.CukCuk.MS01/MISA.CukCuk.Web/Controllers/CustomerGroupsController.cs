@@ -1,11 +1,9 @@
-﻿using Dapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using MISA.Common;
 using MISA.CukCuk.Web.Models;
 using MISA.DL;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,20 +13,20 @@ namespace MISA.CukCuk.Web.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class CustomerGroupsController : ControllerBase
     {
         DbConnector dbConnector;
-        public CustomersController()
+        public CustomerGroupsController()
         {
             dbConnector = new DbConnector();
         }
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(dbConnector.GetAllData<Customer>());
+            return Ok(dbConnector.GetAllData<CustomerGroup>());
         }
 
-        
+
 
     }
 }
