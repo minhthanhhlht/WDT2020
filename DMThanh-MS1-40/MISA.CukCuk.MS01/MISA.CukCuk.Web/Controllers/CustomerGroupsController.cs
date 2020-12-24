@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MISA.CukCuk.Web.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/[controller]")] 
     [ApiController]
     public class CustomerGroupsController : ControllerBase
     {
@@ -24,6 +24,11 @@ namespace MISA.CukCuk.Web.Controllers
         public IActionResult Get()
         {
             return Ok(dbConnector.GetAllData<CustomerGroup>());
+        }
+        [HttpGet("{id}")]
+        public IActionResult Get(string id)
+        {
+            return Ok(dbConnector.GetById<CustomerGroup>(id));
         }
 
 

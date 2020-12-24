@@ -27,8 +27,12 @@ namespace MISA.CukCuk.Web.Controllers
         {
             return Ok(dbConnector.GetAllData<Customer>());
         }
+        [HttpGet("{id}")]
+        public IActionResult Get(string id)
+        {
+            return Ok(dbConnector.GetById<Customer>(id));
+        }
 
-        
 
     }
 }
