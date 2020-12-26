@@ -1,7 +1,7 @@
 ﻿.grid {
     width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
+    
 }
 .grid table th, td {
     border-bottom: 1px solid #bbbbbb;
@@ -22,3 +22,47 @@
     background-color: #d9d9d9;
     cursor: pointer;
 }
+.grid tbody{
+    overflow-y:scroll;
+}
+/*
+.scrollTable {
+    display: block;   
+    overflow: auto;   
+    width: 5px !important;
+    height: 5px !important;
+    z-index: 1231232123421
+}
+    .scrollTable::-webkit-scrollbar {
+        width: 6px;
+        background-color: #bbb;
+    }
+    .scrollTable ::-webkit-scrollbar-thumb {
+        background-color: #808080;
+        border-radius: 8px
+    }
+
+    */
+tbody {
+    height: 100px; /* Just for the demo          */
+    overflow-y: auto; /* Trigger vertical scroll    */
+    overflow-x: hidden; /* Hide the horizontal scroll */
+}
+
+.grid::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+    z-index: 1231232123421
+}
+
+.grid::-webkit-scrollbar-track {
+    width: 6px;
+    background-color: #bbb;
+}
+
+.grid::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 8px
+}
+    
+    

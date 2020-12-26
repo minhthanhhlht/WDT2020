@@ -44,6 +44,7 @@
 
 .header .header-right {
     position: absolute;
+    margin-right: 6px;
     right: 0px;
     height: 100%;
     display: flex;

@@ -10,6 +10,7 @@
 @import url('components/icon.css');
 @import url('components/grid.css');
 @import url('page/customer.css');
+@import url('page/employee.css');
 @import url('/js/all.css');
 
 
@@ -36,6 +37,7 @@ body{
     font-family: 'GoogleSans-Regular';
     src: url('../content/font/GoogleSans-Regular.otf') format('opentype');
 }
+/*
 ::-webkit-scrollbar {
     width: 5px !important;
     height: 5px !important;
@@ -51,3 +53,4 @@ body{
     background-color: #808080;
     border-radius: 8px
 }
+    */

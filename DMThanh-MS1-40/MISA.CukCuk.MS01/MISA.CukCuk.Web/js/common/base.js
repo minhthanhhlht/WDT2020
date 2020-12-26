@@ -24,7 +24,7 @@ class BaseJS {
 
     loadData() {
         $.ajax({
-            url: 'http://api.manhnv.net/api/customers',
+            url: 'http://api.manhnv.net/api/employees',
             method: 'GET',
         }).done(function (response) {
             console.log(response);
@@ -90,7 +90,7 @@ class BaseJS {
 
         });
 
-
+        
         // Click chọn -->item menu đổi màu
         $(".menu__item")
             .hover(function () {
@@ -102,7 +102,7 @@ class BaseJS {
             .mousedown(function () {
                 $(this).css('background-color', '#7fffd4');
             });
-
+            
         /**
          * Validate nhập thông tin trường *
          * **/
@@ -197,7 +197,6 @@ class BaseJS {
         }
         console.log(customer);
         //Gọi server
-
         $.ajax({
             url: 'http://api.manhnv.net/api/customers',
             method: 'POST',

@@ -37,6 +37,11 @@
         }
             .content .filter-bar .filter-left{               
                 padding-left:0px;
+                display: flex;
+            }
+            .content .filter-bar .filter-left select {
+                margin-left: 10px;
+                margin-right: 10px;
             }
             .content .filter-bar .filter-right {
                 position: absolute;
